@@ -16,7 +16,7 @@ public class ExchangeOffice {
     }
 
     private String getValue(BigDecimal bigDecimal) {
-        return bigDecimal.round(new MathContext(5, RoundingMode.HALF_UP)).toString();
+        return bigDecimal.round(new MathContext(7, RoundingMode.HALF_UP)).toString();
     }
 
     public void showFunds() {
@@ -30,7 +30,6 @@ public class ExchangeOffice {
         System.out.println("\n");
 
     }
-
 
     public void exchange(double amount, Currency from, Currency to) {
 
