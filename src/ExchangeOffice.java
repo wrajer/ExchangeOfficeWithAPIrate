@@ -8,6 +8,7 @@ public class ExchangeOffice {
 
     private Map<Currency, BigDecimal> wallet = new HashMap<>();
     private BigDecimal startValue = new BigDecimal("10000");
+    private double interest = 0.2;
 
     public ExchangeOffice() {
         for (Currency currency : Currency.values()) {
@@ -33,7 +34,7 @@ public class ExchangeOffice {
 
     public void exchange(double amount, Currency from, Currency to) {
 
-        BigDecimal toAdd = new BigDecimal(amount * 0.8).multiply(BigDecimal.valueOf(CurrencyConverter.convert(from, to)));
+        BigDecimal toAdd = new BigDecimal(amount * (1.0-interest)).multiply(BigDecimal.valueOf(CurrencyConverter.convert(from, to)));
         BigDecimal toTake = new BigDecimal(amount * (-1.0));
 
         if (checkIfEnoughFounds(amount, from)) {
